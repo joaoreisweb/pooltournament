@@ -15,6 +15,12 @@ Clone de repository inside APP folder.
 git clone https://github.com/joaoreisweb/pooltournament.git
 ```
 
+Install repositories 
+
+```bash
+composer install
+```
+
 ## Create or update .ENV file
 Create or update ".env" file with your database information
 ```env
