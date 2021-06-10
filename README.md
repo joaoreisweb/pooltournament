@@ -12,7 +12,7 @@ Create APP folder
 Clone de repository inside APP folder.
 
 ```bash
-git clone https://github.com/joaoreisweb/pooltournament.git
+git clone https://github.com/joaoreisweb/pooltournament.git .
 ```
 
 Install repositories 
