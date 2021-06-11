@@ -456,7 +456,7 @@
 			function readApi(tableName, callback) {
 
 				$.ajax({
-					url: origin + '/api/read?table=' + tableName,
+					url: origin + '/api/read.php?table=' + tableName,
 					type: 'GET',
 					success: function(data) {
 						if (data) {
@@ -473,7 +473,7 @@
 			function updateMatch(tableName, idToUpdate, updateData) {
 
 				$.ajax({
-					url: origin + '/api/update',
+					url: origin + '/api/update.php',
 					type: 'POST',
 					data: {
 						'table': tableName,
