@@ -23,6 +23,9 @@ composer install
 
 ## Create or update .ENV file
 Create or update ".env" file with your database information
+```bash
+copy .env.example .env
+```
 ```env
 DB_SERVER=localhost 
 DB_NAME=db_name
