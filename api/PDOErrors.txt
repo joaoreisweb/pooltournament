@@ -1,7 +1,0 @@
-2021-06-10 11:26:44 :: readQuery :: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'joaoreis_privoff.pool_players' doesn't exist
-2021-06-10 11:27:13 :: readQuery :: SQLSTATE[HY000]: General error
-2021-06-10 11:38:05 :: readQuery :: SQLSTATE[HY000]: General error
-2021-06-10 11:48:59 :: readQuery :: SQLSTATE[HY000]: General error
-2021-06-10 11:51:01 :: readQuery :: SQLSTATE[HY000]: General error
-2021-06-10 11:52:28 :: readQuery :: SQLSTATE[HY000]: General error
-2021-06-10 11:52:39 :: readQuery :: SQLSTATE[HY000]: General error
