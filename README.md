@@ -30,17 +30,22 @@ DB_USER=db_user
 DB_PASSWORD=db_pass
 ```
 
-## Create Database Tables and tournament data
+## Init server
 
 ```url
-open url
-pooltournament/install.php
+php -S localhost:8000
+```
+
+## Create Database Tables and tournament data
+Go to url
+```url
+http://localhost:8000/install.php
 ```
 
 ## Open Pool Tournament
+Go to url
 ```url
-open url
-pooltournament/
+http://localhost:8000
 ```
 
 
