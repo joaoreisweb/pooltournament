@@ -33,14 +33,14 @@ DB_PASSWORD=db_pass
 ## Create Database Tables and tournament data
 
 ```url
-open file ../pooltournament/install.php
+open url
+pooltournament/install.php
 ```
 
 ## Open Pool Tournament
 ```url
-open file ../pooltournament/index.php
-Or
-open file ../pooltournament/
+open url
+pooltournament/
 ```
 
 
