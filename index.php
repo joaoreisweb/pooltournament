@@ -162,7 +162,7 @@
 				var players = $('option:selected', this).text().split('||')[1].split(' Vs ');
 				var players_id = $('option:selected', this).attr('players_id').split('-');
 				$('#select_winner').empty();
-				$('#select_winner').append($("<option></option>").attr("value", '').text('-- select an winner --'));
+				$('#select_winner').append($("<option></option>").attr("value", '').text('-- select a winner --'));
 
 				$('#select_winner').append($("<option></option>").attr("value", players_id[0]).text(players[0]).attr("looser", players[1]).attr("looser_id", players_id[1]));
 				$('#select_winner').append($("<option></option>").attr("value", players_id[1]).text(players[1]).attr("looser", players[0]).attr("looser_id", players_id[0]));
@@ -171,6 +171,9 @@
 			$("#select_winner").on('change', function() {
 				var looser_name = $('option:selected', this).attr("looser");
 				$('#looser_name').text(looser_name);
+				if($('option:selected', this).val()==''){
+					$('#looser_name').text('Looser');
+				}
 			});
 
 			$("#select_status").on('change', function() {
@@ -179,22 +182,26 @@
 					$('#select_winner').val('');
 					$('#select_winner').prop('disabled', false);
 					$('#select_looser_balls').prop('disabled', true);
+					$('#looser_name').text('Looser');
 				} else if ($(this).val() == 'Waiting') {
+					$('#looser_name').text('Looser');
 					$('#select_looser_balls').val(-1);
 					$('#select_winner').val(-1);
 					$('#select_winner').prop('disabled', true);
 					$('#select_looser_balls').prop('disabled', true);
-				} else {
+				} else if ($(this).val() == 'Played' ) {
 					$('#select_looser_balls').val(1);
 					$('#select_winner').val('');
 					$('#select_winner').prop('disabled', false);
 					$('#select_looser_balls').prop('disabled', false);
 				}
-
 			});
 			//////// SUBMIT PAGE
 			$("#btn_submit_modal").on("click", function() {
 				$('#modal_submit').modal('show');
+				$('#select_status').val(-1);
+				$('#select_winner').prop('disabled', true);
+				$('#select_looser_balls').prop('disabled', true);
 			});
 			$("#btn_close_match").on("click", function() {
 				$('#modal_submit').modal('hide');
@@ -214,10 +221,13 @@
 			});
 
 			$('#modal_submit').on('hide.bs.modal', function() {
-				$('#select_matches').val(-1);
-				$('#select_status').val(1);
+				$('#select_matches').val('');
+				$('#select_status').val(-1);
 				$('#select_winner').empty();
 				$('#select_looser_balls').val(-1);
+				$('#looser_name').text('Looser');
+				$('#select_winner').prop('disabled', true);
+				$('#select_looser_balls').prop('disabled', true);
 
 			});
 			//////// END SUBMIT PAGE
@@ -308,7 +318,7 @@
 
 				var idToUpdate = Number($('option:selected', '#select_matches').val()) + 1;
 				var status = $('option:selected', '#select_status').val();
-
+				
 				var data = {};
 
 				if(status=='Played'){
@@ -332,6 +342,7 @@
 						'looser_balls': 0,
 						'status': $('option:selected', '#select_status').val()
 					};
+					
 				}else {
 					data = {
 						'winner_id': 0,
@@ -381,7 +392,7 @@
 				matchesArr = matches;
 
 				$('#select_matches').empty();
-				$('#select_matches').append($("<option></option>").attr("value", '').text('-- select an match --'));
+				$('#select_matches').append($("<option></option>").attr("value", '').text('-- select a match --'));
 				for (var i in matches) {
 					var p_temp = (matches[i].players).split(',');
 					var p = playersArr[p_temp[0]] + ' Vs ' + playersArr[p_temp[1]];
@@ -456,7 +467,7 @@
 			function readApi(tableName, callback) {
 
 				$.ajax({
-					url: origin + '/api/read?table=' + tableName,
+					url: origin + 'api/read.php?table=' + tableName,
 					type: 'GET',
 					success: function(data) {
 						if (data) {
@@ -473,7 +484,7 @@
 			function updateMatch(tableName, idToUpdate, updateData) {
 
 				$.ajax({
-					url: origin + '/api/update',
+					url: origin + 'api/update.php',
 					type: 'POST',
 					data: {
 						'table': tableName,
