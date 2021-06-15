@@ -23,6 +23,9 @@ composer install
 
 ## Create or update .ENV file
 Create or update ".env" file with your database information
+```bash
+copy .env.example .env
+```
 ```env
 DB_SERVER=localhost 
 DB_NAME=db_name
@@ -30,17 +33,22 @@ DB_USER=db_user
 DB_PASSWORD=db_pass
 ```
 
-## Create Database Tables and tournament data
+## Init server
 
 ```url
-open file ../pooltournament/install.php
+php -S localhost:8000
+```
+
+## Create Database Tables and tournament data
+Go to url
+```url
+http://localhost:8000/install.php
 ```
 
 ## Open Pool Tournament
+Go to url
 ```url
-open file ../pooltournament/index.php
-Or
-open file ../pooltournament/
+http://localhost:8000
 ```
 
 
