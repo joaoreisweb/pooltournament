@@ -65,7 +65,7 @@
 
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light nav_shadow justify-content-between">
-				<span class="navbar-brand">Pool Tournament<span style="margin-left:5px;font-size:10px;font-style: italic;">by Bold</span></span>
+				<span class="navbar-brand">Pool Tournament</span>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item ">
 						<a class="nav-link" href="javascript:void(0);" id="btn_submit_modal">Update match</a>
