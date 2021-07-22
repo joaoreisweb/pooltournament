@@ -6,7 +6,7 @@
         "challenge",
         "bold"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "require": {
         "vlucas/phpdotenv": "^5.3",
         "fakerphp/faker": "^1.14",
